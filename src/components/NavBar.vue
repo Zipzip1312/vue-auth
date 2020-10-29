@@ -1,5 +1,5 @@
 <template>
-    <div id="nav">
+    <div id="nav" class="mb-4">
         <router-link to="/">Home</router-link>|
         <router-link to="/posts">Posts</router-link>|
         <span v-if="isLoggedIn">
@@ -32,6 +32,7 @@ export default {
 <style>
 #nav {
     padding: 30px;
+    text-align: center;
 }
 #nav a {
     display: inline-block;
