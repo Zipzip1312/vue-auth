@@ -3,7 +3,7 @@
         <router-link to="/">Home</router-link>|
         <router-link to="/posts">Posts</router-link>|
         <span v-if="isLoggedIn">
-            <a @click="logout">Logout</a>
+            <a @click.prevent="logout" href="#">Logout</a>
         </span>
         <span v-else>
             <router-link to="/register">Register</router-link>|

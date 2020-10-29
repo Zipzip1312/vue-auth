@@ -1,9 +1,12 @@
 <template>
     <div class="col-md-4 offset-md-4">
         <div v-if="User">
-            <p>Hi {{User}}</p>
+            <p class="text-right">
+                Hi
+                <i>{{User}}</i>
+            </p>
         </div>
-        <div>
+        <div class="mb-5">
             <form @submit.prevent="submit">
                 <div class="form-group">
                     <label for="title">Title:</label>
@@ -20,18 +23,19 @@
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
-        <div class="mt-3" v-if="Posts">
-            <ul>
-                <li v-for="post in Posts" :key="post.id">
-                    <div id="post-div">
-                        <p>{{post.title}}</p>
-                        <p>{{post.write_up}}</p>
-                        <p>Written By: {{post.author.username}}</p>
+
+        <div v-if="Posts">
+            <div v-for="post in Posts.data" :key="post.id">
+                <div class="card mb-3">
+                    <div class="card-header">{{post.title}}</div>
+                    <div class="card-body">
+                        <p class="card-text">{{post.write_up}}</p>
                     </div>
-                </li>
-            </ul>
+                    <div class="card-footer text-muted">Written By: {{post.author.username}}</div>
+                </div>
+            </div>
         </div>
-        <div v-else class="mt-3">Oh no!!! We have no posts</div>
+        <div v-else>Oh no!!! We have no posts</div>
     </div>
 </template>
 
@@ -59,6 +63,8 @@ export default {
         async submit() {
             try {
                 await this.CreatePost(this.form);
+                this.form.title = "";
+                this.form.write_up = "";
             } catch (error) {
                 throw "Sorry you can't make a post now!";
             }

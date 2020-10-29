@@ -15,7 +15,7 @@
             </div>
             <button type="submit" class="btn btn-primary">Register</button>
         </form>
-        <p v-if="showError" class="text-danger">Username already exists</p>
+        <p v-if="showError" class="text-danger mt-3">Username already exists</p>
     </div>
 </template>
 
@@ -36,6 +36,8 @@ export default {
     methods: {
         ...mapActions(["Register"]),
         async submit() {
+            this.showError = false;
+
             try {
                 await this.Register(this.form);
                 this.$router.push("/posts");

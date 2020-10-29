@@ -1,5 +1,5 @@
 <template>
-    <div class="home">Welcome to our blog, check out our posts!</div>
+    <div class="home text-center">Welcome to our blog, check out our posts!</div>
 </template>
 
 <script>

@@ -11,7 +11,7 @@
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
-        <p v-if="showError" id="error">Username or Password is incorrect</p>
+        <p v-if="showError" class="text-danger mt-3">Username or Password is incorrect</p>
     </div>
 </template>
 
