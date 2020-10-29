@@ -1,0 +1,29 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "username": "admin",
+            "password": "admin"
+        }
+    ],
+    "posts": [
+        {
+            "id": 1,
+            "title": "First post title",
+            "write_up": "Lorem, ipsum dolor sit amet consectetur adipisicing.",
+            "author": "admin"
+        },
+        {
+            "id": 2,
+            "title": "Second post title",
+            "write_up": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, illo!",
+            "author": "admin"
+        },
+        {
+            "id": 3,
+            "title": "Third post title",
+            "write_up": "Lorem ipsum dolor sit amet.",
+            "author": "admin"
+        }
+    ]
+}
