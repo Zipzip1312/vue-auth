@@ -31,11 +31,8 @@ export default {
     methods: {
         ...mapActions(["LogIn"]),
         async submit() {
-            const User = new FormData();
-            User.append("username", this.form.username);
-            User.append("password", this.form.password);
             try {
-                await this.LogIn(User);
+                await this.LogIn(this.form);
                 this.$router.push("/posts");
                 this.showError = false;
             } catch (error) {

@@ -6,16 +6,12 @@
                 <input type="text" name="username" v-model="form.username" class="form-control" />
             </div>
             <div class="form-group">
-                <label for="full_name">Full Name:</label>
-                <input type="text" name="full_name" v-model="form.full_name" class="form-control" />
-            </div>
-            <div class="form-group">
                 <label for="password">Password:</label>
                 <input type="password" name="password" v-model="form.password" class="form-control" />
             </div>
             <button type="submit" class="btn btn-primary">Register</button>
         </form>
-        <p v-if="showError" class="text-danger mt-3">Username already exists</p>
+        <p v-if="showError" class="text-danger mt-3" v-text="errorMessage"></p>
     </div>
 </template>
 
@@ -27,10 +23,10 @@ export default {
         return {
             form: {
                 username: "",
-                full_name: "",
                 password: "",
             },
             showError: false,
+            errorMessage: "",
         };
     },
     methods: {
@@ -44,6 +40,7 @@ export default {
                 this.showError = false;
             } catch (error) {
                 this.showError = true;
+                this.errorMessage = error;
             }
         },
     },

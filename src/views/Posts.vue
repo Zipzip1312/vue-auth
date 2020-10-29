@@ -20,18 +20,18 @@
                         class="form-control"
                     ></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Add post</button>
             </form>
         </div>
 
         <div v-if="Posts">
             <div v-for="post in Posts.data" :key="post.id">
                 <div class="card mb-3">
-                    <div class="card-header">{{post.title}}</div>
+                    <div class="card-header text-center">{{post.title}}</div>
                     <div class="card-body">
                         <p class="card-text">{{post.write_up}}</p>
                     </div>
-                    <div class="card-footer text-muted">Written By: {{post.author.username}}</div>
+                    <div class="card-footer text-muted">Written By: {{post.author}}</div>
                 </div>
             </div>
         </div>

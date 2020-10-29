@@ -6,8 +6,8 @@ import axios from 'axios';
 
 // send all requests with authorization headers, TLS client certificates, cookies (as in our case)
 axios.defaults.withCredentials = true
-// testing backend api
-axios.defaults.baseURL = 'https://gabbyblog.herokuapp.com/';
+// fake backend api
+axios.defaults.baseURL = 'http://localhost:3004/';
 
 Vue.config.productionTip = false
 new Vue({

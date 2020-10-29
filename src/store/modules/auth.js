@@ -13,25 +13,26 @@ const getters = {
 
 const actions = {
     async Register({ dispatch }, form) {
-        await axios.post('register', form);
-        let UserForm = new FormData();
-        UserForm.append('username', form.user);
-        UserForm.append('password', form.password);
-        await dispatch('LogIn', UserForm);
+        await axios.post('users', form);
+        await dispatch('LogIn', form);
     },
 
-    async LogIn({ commit }, User) {
-        await axios.post('login', User);
-        await commit('setUser', User.get('username'));
+    async LogIn({ commit }, form) {
+        let response = await axios.get(`users?username=${form.username}&password=${form.password}`);
+        if (response.data.length === 0) {
+            throw new Error('User not found!');
+        }
+        commit('setUser', form.username);
     },
 
-    async CreatePost({ dispatch }, post) {
-        await axios.post('post', post);
+    async CreatePost({ state, dispatch }, post) {
+        post.author = state.user;
+        await axios.post('posts', post);
         await dispatch('GetPosts');
     },
 
     async GetPosts({ commit }) {
-        let response = await axios.get('posts');
+        let response = await axios.get('posts?_sort=id&_order=desc');
         commit('setPosts', response);
     },
 
