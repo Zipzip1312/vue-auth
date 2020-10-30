@@ -1,24 +1,25 @@
-# vue-auth
+# VUE.js auth module
 
 ## Project setup
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Run Project
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### Run fake backend api
 ```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
+npm run json:server
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Open Project in the browser
+[http://localhost:8081/](http://localhost:8081/)
+
+### Login credentials
+Username: **admin**
+Password: **admin**
+
+> Feel free to register as a new User
