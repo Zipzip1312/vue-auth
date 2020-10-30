@@ -9,13 +9,18 @@
         <div class="mb-5">
             <form @submit.prevent="submit">
                 <div class="form-group">
-                    <label for="title">Title:</label>
-                    <input type="text" name="title" v-model="form.title" class="form-control" />
+                    <input
+                        type="text"
+                        name="title"
+                        v-model="form.title"
+                        placeholder="Title"
+                        class="form-control"
+                    />
                 </div>
                 <div class="form-group">
                     <textarea
-                        name="write_up"
-                        v-model="form.write_up"
+                        name="content"
+                        v-model="form.content"
                         placeholder="Write up..."
                         class="form-control"
                     ></textarea>
@@ -29,7 +34,7 @@
                 <div class="card mb-3">
                     <div class="card-header text-center">{{post.title}}</div>
                     <div class="card-body">
-                        <p class="card-text">{{post.write_up}}</p>
+                        <p class="card-text">{{post.content}}</p>
                     </div>
                     <div class="card-footer text-muted">Written By: {{post.author}}</div>
                 </div>
@@ -47,7 +52,7 @@ export default {
         return {
             form: {
                 title: "",
-                write_up: "",
+                content: "",
             },
         };
     },
@@ -64,7 +69,7 @@ export default {
             try {
                 await this.CreatePost(this.form);
                 this.form.title = "";
-                this.form.write_up = "";
+                this.form.content = "";
             } catch (error) {
                 throw "Sorry you can't make a post now!";
             }
