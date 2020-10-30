@@ -10,7 +10,7 @@ npm install
 npm run serve
 ```
 
-### Run fake backend api
+### Run fake backend API in another terminal window
 ```
 npm run json:server
 ```
